@@ -5,7 +5,7 @@ export function UpdateName(newName) {
     const action = {
         type: ActionTypes.UPDATE_NAME,
         newName
-    }
+    };
     
     store.dispatch(action);
 }

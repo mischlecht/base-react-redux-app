@@ -1,5 +1,6 @@
-import Immutable from 'immutable';
-import ActionTypes from '../constants/action-types.js';
+/* eslint-disable import/default */
+
+//import Immutable from 'immutable';
 
 export function updateName (previous, action) {
     const { newName } = action;

@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+//import { expect } from 'chai';
 import * as ActionTypes from '../constants/action-types';
 import * as HomeReducers from './reducers';
 import * as Models from '../home/home.models';
@@ -23,7 +23,5 @@ describe('HomeReducers', () => {
 
         testState.myName.firstName.should.equal('NewFirstName');
         testState.myName.lastName.should.equal('NewLastName');
-        
-        // expect(reducer(undefined, action)).to.equal(expected); // Fails. Not deeply equal
     });
 });

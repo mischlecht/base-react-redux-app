@@ -1,5 +1,5 @@
 import * as ActionTypes from '../constants/action-types';
-import {createStore, compose} from 'redux';
+import {createStore} from 'redux';
 import * as Models from '../home/home.models';
 import * as Reducers from '../reducers/reducers';
 
