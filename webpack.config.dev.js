@@ -3,6 +3,11 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
+import Dashboard from 'webpack-dashboard';
+import DashboardPlugin from 'webpack-dashboard/plugin';
+
+var dashboard = new Dashboard();
+
 export default {
   debug: true,
   devtool: 'cheap-module-eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
@@ -32,7 +37,8 @@ export default {
         collapseWhitespace: true
       },
       inject: true
-    })
+    }),
+    new DashboardPlugin(dashboard.setData),
   ],
   module: {
     loaders: [

@@ -4,10 +4,14 @@
 import webpack from 'webpack';
 import config from '../webpack.config.prod';
 import {chalkError, chalkSuccess, chalkWarning, chalkProcessing} from './chalkConfig';
+import Dashboard from 'webpack-dashboard';
+import DashboardPlugin from 'webpack-dashboard/plugin';
 
 process.env.NODE_ENV = 'production'; // this assures React is built in prod mode and that the Babel dev config doesn't apply.
 
 console.log(chalkProcessing('Generating minified bundle for production via Webpack. This will take a moment...'));
+
+var dashboard = new Dashboard();
 
 webpack(config).run((error, stats) => {
   if (error) { // so a fatal error occurred. Stop here.
@@ -32,4 +36,5 @@ webpack(config).run((error, stats) => {
   console.log(chalkSuccess('Your app is compiled in production mode in /dist. It\'s ready to roll!'));
 
   return 0;
-});
+}).apply(new DashboardPlugin(dashboard.setData));
+
