@@ -1,7 +1,7 @@
 //import { expect } from 'chai';
-import * as ActionTypes from '../constants/action-types';
-import * as HomeReducers from './reducers';
-import * as Models from '../home/home.models';
+import * as ActionTypes from '../../constants/action-types';
+import * as HomeReducers from './home.reducers';
+import * as Models from '../constants/home.models';
 
 describe('HomeReducers', () => {
     const getInitialState = () => {

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import * as HomeActions from './home.actions';
-import TextInput from '../shared/text-input.jsx';
+import * as HomeActions from '../home.actions';
+import TextInput from '../../shared/components/text-input.jsx';
 
 export default class EditName extends React.Component {
     constructor(props){
