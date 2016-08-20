@@ -8,7 +8,7 @@ This is a modified base React/Redux app that piggybacks off of [react-slingshot]
 2. **Clone the project**. `git clone https://github.com/mischlecht/base-react-redux-app.git` (feel free to rename the app).
 3. **cd into the directory** `cd base-react-redux-app`.
 3. **Install required node modules**. `npm install`
-4. **Run the example app**. `npm start -s`
+4. **Run the example app**. `npm dev -s`
 This will run the automated build process, start up a webserver, and open the application in your default browser. When doing development with this kit, this command will continue watching all your files. Every time you hit save the code is rebuilt, linting runs, and tests run automatically. Note: The -s flag is optional. It enables silent mode which suppresses unnecessary messages during the build.
 5. **Review the example app.** This starter kit includes a working example app that will allow you to view your name in the initial state, update it in an name editor component, and submit your change to the store. 
 
