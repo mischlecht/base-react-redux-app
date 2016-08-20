@@ -3,10 +3,10 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 
-import Dashboard from 'webpack-dashboard';
-import DashboardPlugin from 'webpack-dashboard/plugin';
+//import Dashboard from 'webpack-dashboard';
+//import DashboardPlugin from 'webpack-dashboard/plugin';
 
-var dashboard = new Dashboard();
+//var dashboard = new Dashboard();
 
 export default {
   debug: true,
@@ -38,7 +38,7 @@ export default {
       },
       inject: true
     }),
-    new DashboardPlugin(dashboard.setData),
+    //new DashboardPlugin(dashboard.setData),
   ],
   module: {
     loaders: [
