@@ -5,16 +5,16 @@ $vin-red: #ff0000;
 
 /* Styles */
 body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4em;
-  color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
-  margin: 0 auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  font-weight: 300;
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    color: #4d4d4d;
+    min-width: 230px;
+    max-width: 550px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 300;
 }
 
 td {
@@ -25,7 +25,59 @@ h2 {
 	color: $vin-blue;
 }
 
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
+.addTask, .editTask {
+    float: right;
+} 
+
+.addTask:hover,
+.editTask:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.saveCancel {
+    float: right;
+    text-align: inline-block;
+    font-size: 14px;
+}
+
+.saveCancel > a {
+    margin-left: 13px;
+}
+
+.saveCancel > a:hover {
+    margin-left: 8px;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.removeTask {
+    float: right;
+    font-size: 10px;
+}
+
+.removeTask:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.taskDetailsContainer {
+    color: blue;
+    padding: 15px;
+    width: 200px;
+    margin-top: 25px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.taskDescription {
+    padding-left: 10px;
+}
+
+.taskCid {
+    font-size: 10px;
+}

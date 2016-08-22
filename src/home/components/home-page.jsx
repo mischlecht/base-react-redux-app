@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import * as Immutable from 'immutable';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import HomeActions from '../home.actions';
+import * as HomeActions from '../home.actions';
 import EditName from './edit-name.jsx';
 
 export default class HomePage extends React.Component {
@@ -24,5 +24,7 @@ export default class HomePage extends React.Component {
 };
 
 HomePage.propTypes = {
-    homeState: PropTypes.object.isRequired,
+    homeState: ImmutablePropTypes.contains({
+        myName: PropTypes.object.isRequired,
+    }),
 }

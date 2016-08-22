@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
+import Immutable from 'immutable';
+
 import * as HomeActions from '../home.actions';
 import TextInput from '../../shared/components/text-input.jsx';
-import * as Immutable from 'immutable';
 
 export default class EditNameStateful extends React.Component {
     constructor(props){

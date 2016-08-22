@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import * as Immutable from 'immutable';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { store } from '../store/store';
-import Home from './components/home.jsx';
+import HomePage from './components/home-page.jsx';
 
 export default class HomeController extends React.Component {
     constructor(props){
@@ -24,8 +24,8 @@ export default class HomeController extends React.Component {
 
     render() {
         return <div>
-            <Home
-                homeState={this.state.homeState}/>
+            <HomePage
+                homeState={ this.state.homeState } />
         </div>;
     }
 
