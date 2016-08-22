@@ -1,10 +1,10 @@
-//import Immutable from 'immutable';
+import * as Immutable from 'immutable';
 
-export const MyName = {
+export const MyName = Immutable.Record({
     firstName: 'Michael',
     lastName: 'Schlecht',
-};
+});
 
-export const InitialState = {
-    myName: MyName
-};
+export const InitialState = Immutable.fromJS({
+    myName: new MyName()
+});

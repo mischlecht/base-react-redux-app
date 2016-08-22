@@ -1,11 +1,11 @@
 import * as ActionTypes from '../constants/action-types';
 import {createStore} from 'redux';
-import * as Models from '../home/constants/home.models';
+import * as Models from '../constants/models';
 import * as Reducers from '../home/reducers/home.reducers';
 
-export let initialState = Models.InitialState;
+export let appInitialState = Models.AppState;
 
-function homeApp(previous = initialState, action) {
+function app(previous = appInitialState, action) {
     switch (action.type) {
         case ActionTypes.UPDATE_NAME:
             return Reducers.updateName(previous, action);
@@ -14,4 +14,4 @@ function homeApp(previous = initialState, action) {
   }
 }
 
-export const store = createStore(homeApp, window.devToolsExtension && window.devToolsExtension());
+export const store = createStore(app, window.devToolsExtension && window.devToolsExtension());

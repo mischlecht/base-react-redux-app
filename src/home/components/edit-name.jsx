@@ -1,49 +1,52 @@
 import React, { PropTypes } from 'react';
 import * as HomeActions from '../home.actions';
 import TextInput from '../../shared/components/text-input.jsx';
+import * as Immutable from 'immutable';
 
-export default class EditName extends React.Component {
+export default class EditNameStateful extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
-            firstName: '',
-            lastName: '',
-        }
+            myName: Immutable.fromJS({
+                firstName: '',
+                lastName: '',
+            })
+        };
 
-        this.handleFirstNameEdit = this.handleFirstNameEdit.bind(this);
-        this.handleLastNameEdit = this.handleLastNameEdit.bind(this);
-        this.handleSubmitToStore = this.handleSubmitToStore.bind(this);
+        this.updateMyName = this.updateMyName.bind(this);
+        this.handleSubmitMyNameEdit = this.handleSubmitMyNameEdit.bind(this);
     }
 
-    componentDidMount() {
-        this.setState(this.props.myName);
+    componentWillMount() {
+        this.setState({ myName: this.props.myName });
     }
 
     render() {
+        const myName = this.state.myName;
+        const firstName = myName.get('firstName');
+        const lastName = myName.get('lastName');
+
         return <EditNameStateless
-            firstName={this.state.firstName}
-            lastName={this.state.lastName}
-            onFirstNameEdit={this.handleFirstNameEdit}
-            onLastNameEdit={this.handleLastNameEdit}
-            onSubmitToStore={this.handleSubmitToStore} />
+            firstName={firstName}
+            lastName={lastName}
+            onFirstNameEdit={val => this.updateMyName('firstName', val)}
+            onLastNameEdit={val => this.updateMyName('lastName', val)}
+            onSubmitMyNameEdit={this.handleSubmitMyNameEdit} />
     }
 
-    handleFirstNameEdit(val) {
-        this.setState({firstName: val});
+    updateMyName(propName, val) {
+        const newMyName = this.state.myName.set(propName, val);
+        this.setState({ myName: newMyName });
     }
 
-    handleLastNameEdit(val) {
-        this.setState({lastName: val});
-    }
-
-    handleSubmitToStore() {
-        HomeActions.UpdateName(this.state);
+    handleSubmitMyNameEdit() {
+        HomeActions.UpdateName(this.state.myName);
     }
 
 };
 
-EditName.propTypes = {
+EditNameStateful.propTypes = {
   myName: PropTypes.object.isRequired
 };
 
@@ -64,7 +67,7 @@ export class EditNameStateless extends React.Component {
                 type='text'
                 value={this.props.lastName}
                 onChange={this.props.onLastNameEdit} />
-            <button onClick={this.props.onSubmitToStore} >Submit Changes to Store</button>
+            <button onClick={this.props.onSubmitMyNameEdit} >Submit Changes to Store</button>
         </div>;
     }
 }
@@ -74,5 +77,5 @@ EditNameStateless.propTypes = {
   lastName: PropTypes.string.isRequired,
   onFirstNameEdit: PropTypes.func.isRequired,
   onLastNameEdit: PropTypes.func.isRequired,
-  onSubmitToStore: PropTypes.func.isRequired,
+  onSubmitMyNameEdit: PropTypes.func.isRequired,
 };

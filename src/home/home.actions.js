@@ -6,6 +6,6 @@ export function UpdateName(newName) {
         type: ActionTypes.UPDATE_NAME,
         newName
     };
-    
+
     store.dispatch(action);
 }

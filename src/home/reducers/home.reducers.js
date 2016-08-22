@@ -4,10 +4,10 @@
 
 export function updateName (previous, action) {
     const { newName } = action;
-    let newState = Object.assign({}, previous);
 
-    newState.myName.firstName = newName.firstName;
-    newState.myName.lastName = newName.lastName;
+    let newMyName = previous.getIn(['homeState', 'myName']);
 
-    return newState;
+    newMyName = newMyName.merge(newName);
+
+    return previous.setIn(['homeState', 'myName'], newMyName);
 }
