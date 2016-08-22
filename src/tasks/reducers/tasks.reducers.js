@@ -19,7 +19,6 @@ export function toggleEditTask(previous, action) {
     let { taskCid } = action;
 
     const taskIndex = getIndexByCid(previous, taskCid);
-    debugger;
     if(taskIndex !== -1 ) {
         const currentEditState = previous.getIn(['tasksState', 'tasks', taskIndex, 'isEditing']); 
         return previous.setIn(['tasksState', 'tasks', taskIndex, 'isEditing'], !currentEditState);
@@ -66,7 +65,6 @@ export function removeTask(previous, action) {
 
     if(taskIndex !== -1 ) {
         let tasks = previous.getIn(['tasksState', 'tasks']).delete(taskIndex);
-        debugger;
         return previous.setIn(['tasksState', 'tasks'], tasks);
     }
 
