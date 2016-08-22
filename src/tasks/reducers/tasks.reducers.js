@@ -35,7 +35,7 @@ export function saveEdit(previous, action) {
 
     if(taskIndex !== -1 ) {
         taskDetails = taskDetails.set('isAdding', false);
-        previous = previous.setIn(['tasksState', 'tasks', taskIndex], taskDetails);
+        previous = previous.mergeIn(['tasksState', 'tasks', taskIndex], taskDetails);
         return toggleEditTask(previous, { taskCid });
     }
 

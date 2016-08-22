@@ -1,27 +1,63 @@
 //import { expect } from 'chai';
+import Immutable from 'immutable';
 import * as ActionTypes from '../../constants/action-types';
-import * as HomeReducers from './home.reducers';
-import * as Models from '../constants/home.models';
+import * as TasksReducers from './tasks.reducers';
+import * as Models from '../../constants/models';
+import * as TasksModels from '../constants/tasks.models';
 
-describe('HomeReducers', () => {
+describe('Tasks Reducers', () => {
     const getInitialState = () => {
-        return Models.InitialState;
+        return Models.AppState;
     };
 
-    it('update the name in the store', () => {
+    const getInitialStateWithSingleTaskBeingAdded = () => {
+        return Immutable.fromJS({
+            tasksState: {
+                tasks: [
+                    new TasksModels.Task({
+                        title: 'Title',
+                        description: 'Description',
+                        taskCid: 'testCid',
+                        isAdding: true,
+                        isEditing: true,
+                    })
+                ]
+            }
+        });
+    };
+
+    it('adds a task', () => {
         let testState = getInitialState();
 
         const action = {
-            type: ActionTypes.UPDATE_NAME,
-            newName: {
-                firstName: 'NewFirstName',
-                lastName: 'NewLastName',
-            }
+            type: ActionTypes.TASKS_ADD_TASK,
         };
         
-        testState = HomeReducers.updateName(testState, action);
+        testState = TasksReducers.addTask(testState, action);
 
-        testState.myName.firstName.should.equal('NewFirstName');
-        testState.myName.lastName.should.equal('NewLastName');
+        testState.getIn(['tasksState', 'tasks']).size.should.eql(1);
+        testState.getIn(['tasksState', 'tasks', 0, 'isAdding']).should.eql(true);
+        testState.getIn(['tasksState', 'tasks', 0, 'isEditing']).should.eql(true);
+    });
+
+    it('adds and edits a task', () => {
+        let testState = getInitialStateWithSingleTaskBeingAdded();
+
+        const action = {
+            type: ActionTypes.TASKS_SAVE_EDIT,
+            taskDetails: Immutable.fromJS({
+                title: 'EDITED',
+                description: 'EDITED',
+                taskCid: 'testCid',
+                isAdding: true,
+                isEditing: true,
+            })
+        };
+
+        testState = TasksReducers.saveEdit(testState, action);
+
+        testState.getIn(['tasksState', 'tasks', 0, 'title']).should.eql('EDITED');
+        testState.getIn(['tasksState', 'tasks', 0, 'description']).should.eql('EDITED');
+        testState.getIn(['tasksState', 'tasks', 0, 'isEditing']).should.eql(false);
     });
 });

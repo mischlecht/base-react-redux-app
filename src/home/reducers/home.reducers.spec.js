@@ -1,11 +1,11 @@
 //import { expect } from 'chai';
 import * as ActionTypes from '../../constants/action-types';
 import * as HomeReducers from './home.reducers';
-import * as Models from '../constants/home.models';
+import * as Models from '../../constants/models';
 
 describe('HomeReducers', () => {
     const getInitialState = () => {
-        return Models.InitialState;
+        return Models.AppState;
     };
 
     it('update the name in the store', () => {
@@ -21,7 +21,7 @@ describe('HomeReducers', () => {
         
         testState = HomeReducers.updateName(testState, action);
 
-        testState.myName.firstName.should.equal('NewFirstName');
-        testState.myName.lastName.should.equal('NewLastName');
+        testState.getIn(['homeState', 'myName', 'firstName']).should.equal('NewFirstName');
+        testState.getIn(['homeState', 'myName', 'lastName']).should.equal('NewLastName');
     });
 });
