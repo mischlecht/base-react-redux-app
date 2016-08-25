@@ -2,7 +2,7 @@
 import {Task} from '../constants/tasks.models';
 import * as ClientIdFactory from '../../shared/factories/client-id-factory';
 
-export function addTask (previous, action) {
+export function addTask (previous) {
     let updatedTasks = previous.getIn(['tasksState', 'tasks']);
 
     // TODO: Add logic to add task

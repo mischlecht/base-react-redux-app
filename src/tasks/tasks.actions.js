@@ -1,5 +1,3 @@
-import SweetAlert from 'sweetalert2';
-
 import * as ActionTypes from '../constants/action-types';
 import { store } from '../store/store';
 
