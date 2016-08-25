@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { store } from '../store/store';
-import HomePage from './components/home-page.jsx';
+import MoviePage from './components/movie-page.jsx';
 
-export default class HomeController extends React.Component {
+export default class MoviesController extends React.Component {
     constructor(props){
         super(props);
         
@@ -14,7 +14,7 @@ export default class HomeController extends React.Component {
     }
 
     componentWillMount(){
-        this.setState({ homeState: this.getHomeStateFromStore() });
+        this.setState({ movieState: this.getHomeStateFromStore() });
     }
 
     componentDidMount(){
@@ -23,18 +23,17 @@ export default class HomeController extends React.Component {
 
     render() {
         return <div>
-            <HomePage
-                homeState={ this.state.homeState } />
+            <MoviePage />
         </div>;
     }
 
     getHomeStateFromStore(){
         const storeState = store.getState();
-        return storeState.get('homeState');
+        return storeState.get('movieState');
     }
 
     onStoreChange() {
         const newState = this.getHomeStateFromStore();
-        this.setState({ homeState: newState });
+        this.setState({ movieState: newState });
     }
 };

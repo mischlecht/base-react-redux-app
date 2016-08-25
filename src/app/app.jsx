@@ -12,6 +12,8 @@ export default class App extends React.Component {
             {' | '}
             <Link to="/tasks">Tasks</Link>
             {' | '}
+            <Link to="/movies">Movies</Link>
+            {' | '}
             <Link to="/about">About</Link>
             <br/>
             {this.props.children}

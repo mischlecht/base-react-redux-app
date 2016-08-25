@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 
-import * as HomeActions from '../home.actions';
 import EditName from './edit-name.jsx';
 
 export default class HomePage extends React.Component {

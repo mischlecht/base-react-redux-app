@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { store } from '../store/store';
 
 import TasksPage from './components/tasks-page.jsx';
