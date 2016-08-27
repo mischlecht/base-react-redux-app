@@ -14,6 +14,8 @@ export default class MovieBasicInfo extends React.Component {
 
         return <div className={'movieBasicInfo'}>
             <h1>{title}</h1>
+            <p>{year}</p>
+            <img src={poster} className={'movieThumbnail'}/>
         </div>;
     }
 };
