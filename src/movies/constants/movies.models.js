@@ -1,11 +1,13 @@
 import * as Immutable from 'immutable';
 
-export const MovieRecord = Immutable.Record({
+export const MovieBasicRecord = Immutable.Record({
     title: '',
     year: '',
+    poster: '',
+    imdbId: '',
 });
 
 export const InitialState = Immutable.fromJS({
-    searchInput: 'hello',
-    movieResults: Immutable.List(),
+    searchInput: '',
+    movies: Immutable.List(),
 });

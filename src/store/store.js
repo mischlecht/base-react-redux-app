@@ -25,8 +25,10 @@ function app(previous = appInitialState, action) {
             return TasksReducers.removeTask(previous, action);
 
         /** Movies Reducers **/
-        case ActionTypes.SEARCH_MOVIES:
-            return MoviesReducers.searchMovies(previous, action);
+        case ActionTypes.UPDATE_SEARCH_INPUT:
+            return MoviesReducers.updateSearchInput(previous, action);
+        case ActionTypes.GOT_MOVIES_BASIC:
+            return MoviesReducers.setMovieResults(previous, action);
 
         /** Default **/
         default:

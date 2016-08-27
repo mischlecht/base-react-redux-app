@@ -8,4 +8,5 @@ export const TASKS_CANCEL_EDIT = 'TASKS_CANCEL_EDIT';
 export const TASKS_REMOVE_TASK = 'TASKS_REMOVE_TASK';
 
 /** Movie Actions **/
-export const SEARCH_MOVIES = 'SEARCH_MOVIES';
+export const UPDATE_SEARCH_INPUT = 'UPDATE_SEARCH_INPUT';
+export const GOT_MOVIES_BASIC = 'GOT_MOVIES_BASIC';

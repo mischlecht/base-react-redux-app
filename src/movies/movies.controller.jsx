@@ -14,7 +14,7 @@ export default class MoviesController extends React.Component {
     }
 
     componentWillMount(){
-        this.setState({ movieState: this.getHomeStateFromStore() });
+        this.setState({ moviesState: this.getHomeStateFromStore() });
     }
 
     componentDidMount(){
@@ -23,17 +23,18 @@ export default class MoviesController extends React.Component {
 
     render() {
         return <div>
-            <MoviePage />
+            <MoviePage 
+                moviesState={this.state.moviesState} />
         </div>;
     }
 
     getHomeStateFromStore(){
         const storeState = store.getState();
-        return storeState.get('movieState');
+        return storeState.get('moviesState');
     }
 
     onStoreChange() {
         const newState = this.getHomeStateFromStore();
-        this.setState({ movieState: newState });
+        this.setState({ moviesState: newState });
     }
 };
