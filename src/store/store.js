@@ -2,6 +2,7 @@ import * as ActionTypes from '../constants/action-types';
 import {createStore} from 'redux';
 import * as Models from '../constants/models';
 import * as HomeReducers from '../home/reducers/home.reducers';
+import * as ImagesReducers from '../images/reducers/images.reducers';
 import * as TasksReducers from '../tasks/reducers/tasks.reducers';
 import * as MoviesReducers from '../movies/reducers/movies.reducers';
 
@@ -11,7 +12,11 @@ function app(previous = appInitialState, action) {
     switch (action.type) {
         case ActionTypes.UPDATE_NAME:
             return HomeReducers.updateName(previous, action);
-        
+
+        /** Images Reducers **/
+        case ActionTypes.IMAGES_VOTE_FOR_IMAGE:
+            return ImagesReducers.voteForImage(previous, action);
+
         /** Tasks Reducers **/
         case ActionTypes.TASKS_ADD_TASK:
             return TasksReducers.addTask(previous, action);

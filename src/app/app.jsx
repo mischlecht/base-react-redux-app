@@ -10,9 +10,7 @@ export default class App extends React.Component {
         return <div>
             <IndexLink to="/">Home</IndexLink>
             {' | '}
-            <Link to="/tasks">Tasks</Link>
-            {' | '}
-            <Link to="/movies">Movies</Link>
+            <Link to="/images">Images</Link>
             {' | '}
             <Link to="/about">About</Link>
             <br/>

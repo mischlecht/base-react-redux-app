@@ -1,5 +1,8 @@
 export const UPDATE_NAME = 'UPDATE_NAME';
 
+/** Images Actions **/
+export const IMAGES_VOTE_FOR_IMAGE = 'IMAGES_VOTE_FOR_IMAGE';
+
 /** Tasks Actions **/
 export const TASKS_ADD_TASK = 'TASKS_ADD_TASK';
 export const TASKS_TOGGLE_EDIT_TASK = 'TASKS_TOGGLE_EDIT_TASK';
